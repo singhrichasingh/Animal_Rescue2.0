@@ -1,0 +1,17 @@
+.forestbg {
+    background-image: url(../../../assets/imgs/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.wildlifebg {
+    background-image: url(../../../assets/imgs/wildlife_bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+ion-card,p{
+ background: forestgreen;
+ color:whitesmoke ;
+}

@@ -1,0 +1,225 @@
+<ion-header style="background: forestgreen;">
+  <ion-toolbar color="headercolor">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" style="width: 40px;height: 30px;color: white;"></ion-icon>
+    </ion-buttons>
+      <ion-title style="color: whitesmoke">
+          New Request
+      </ion-title>
+      <ion-buttons slot="end" >
+      <button (click)="logout()" class="headerbtn" style="background:none;">
+          <img src="../../../assets/imgs/logout.png" style="background: none;" />
+      </button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+      <ion-item-divider color="dividercolor">Applicant Details<em>*</em></ion-item-divider>
+      <ion-item-group>
+          <ion-list>
+              <ion-item color="newreqbgcolor">
+                  <ion-label>Reported By</ion-label>
+                  <ion-select [(ngModel)]="userType" >
+                      <ion-select-option value="Citizen">Citizen</ion-select-option>
+                      <ion-select-option value="Officer">Officer</ion-select-option>
+                  </ion-select>
+              </ion-item>
+          </ion-list>
+          <div >
+              <ion-item color="newreqbgcolor">
+                  <ion-input type="text" id="citizenname" 
+                      class="form-control">Rick</ion-input>
+                  <ion-icon name="ios-person-outline" item-right primary style="color: black;"></ion-icon>
+              </ion-item>
+              <ion-item color="newreqbgcolor">
+                  <ion-input type="email" id="citizenemailid" 
+                      class="form-control">xyz@abc.com</ion-input>
+                  <ion-icon name="ion-ios-email" item-right primary style="color: black;"></ion-icon>
+              </ion-item>
+              <ion-item color="newreqbgcolor">
+                  <ion-input type="tel" id="citizenmobile" 
+                      class="form-control">9898989898</ion-input>
+                  <ion-icon name="ion-ios-telephone" item-right primary style="color: black;"></ion-icon>
+              </ion-item>
+          </div>
+
+          <!-- <div *ngIf="userType=='Citizen'">
+              <ion-item color="newreqbgcolor">
+                  <ion-input type="text" id="citizenname" [(ngModel)]="citizenname" placeholder="Citizen Name"
+                      class="form-control" readonly></ion-input>
+                  <ion-icon name="ios-person-outline" item-right primary style="color: black;"></ion-icon>
+              </ion-item>
+              <ion-item color="newreqbgcolor">
+                  <ion-input type="email" id="citizenemailid" [(ngModel)]="citizenemailid"
+                      placeholder="Citizen Email ID" class="form-control" readonly></ion-input>
+                  <ion-icon name="ion-ios-email" item-right primary style="color: black;"></ion-icon>
+              </ion-item>
+              <ion-item color="newreqbgcolor">
+                  <ion-input type="tel" id="citizenmobile" [(ngModel)]="citizenmobile" placeholder="Citizen Mobile"
+                      class="form-control" readonly></ion-input>
+                  <ion-icon name="ion-ios-telephone" item-right primary style="color: black;"></ion-icon>
+              </ion-item>
+          </div> -->
+      </ion-item-group>
+
+      <ion-item-group>
+          <ion-item-divider color="dividercolor">Animal Details<em>*</em></ion-item-divider>
+<ion-list>
+              <ion-item color="newreqbgcolor">
+                  <ion-label>District<em>*</em></ion-label>
+                  <ion-input type="text"  slot="end"
+                   class="form-control">Test District</ion-input>
+                
+              </ion-item>
+          </ion-list>
+
+          <div >
+              <ion-list>
+                  <ion-item color="newreqbgcolor" >
+                      <ion-label>Block<em>*</em></ion-label>
+                      <ion-input type="text"  slot="end"
+                      class="form-control">Test Block</ion-input>
+                  </ion-item>
+              </ion-list>
+              <ion-list>
+                  <ion-item color="newreqbgcolor" >
+                      <ion-label>Gram Panchayat<em>*</em></ion-label>
+                      <ion-input type="text"   slot="end"
+                      class="form-control">Test GP</ion-input>
+                  </ion-item>
+              </ion-list>
+              <ion-list>
+                  <ion-item color="newreqbgcolor">
+                      <ion-label>Village<em>*</em></ion-label>
+                      <ion-input type="text"   slot="end"
+                      class="form-control">Test Village</ion-input>
+                  </ion-item>
+
+              </ion-list>
+          </div>
+          <ion-item color="newreqbgcolor">
+              <ion-label style="padding-left: 2%;">Location<em>*</em></ion-label>
+              <ion-input type="text" id="location"class="form-control"  slot="end"></ion-input>
+              <ion-icon name="ion-ios-location" item-right primary style="color: black;"></ion-icon>
+          </ion-item>
+          <ion-list>
+              <ion-item color="newreqbgcolor">
+                  <ion-label>Animal Category<em>*</em></ion-label>
+                  <ion-select [(ngModel)]="animalid">
+                      <ion-select-option  value="Reptile"
+                           >Reptile</ion-select-option>
+                  </ion-select>
+              </ion-item>
+          </ion-list>
+          <ion-list >
+              <ion-item color="newreqbgcolor">
+                  <ion-label>Animal Name<em>*</em></ion-label>
+                  <ion-select [(ngModel)]="ChildAnimalId">
+                      <ion-select-option  
+                          >
+                          Snake</ion-select-option>
+                  </ion-select>
+              </ion-item>
+          </ion-list>
+          <ion-item color="newreqbgcolor" >
+              <ion-input type="text" id="OtherAnimalName" 
+                  placeholder="Child Animal Name" class="form-control"></ion-input>
+          </ion-item>
+          <ion-list>
+              <ion-item color="newreqbgcolor">
+                  <ion-label>Description<em>*</em></ion-label>
+                  <ion-textarea elastic [(ngModel)]="noteContent" slot="end">Description........</ion-textarea>
+              </ion-item>
+          </ion-list>
+          <ion-list>
+                  <ion-row color="dividercolor" style="color:#6f770a; color: #1D4835;">
+                      <ion-col >
+                          <ion-item no-padding  position="stacked"> 
+                              <ion-label  position="stacked">Current Time and Location<sup>*</sup></ion-label>
+                              <!-- <ion-item-divider  >Current Time And Location<em>*</em>
+                              </ion-item-divider> -->
+                          </ion-item>
+                      </ion-col>
+                     <ion-col>
+                         <ion-item no-padding  position="stacked">
+                          <ion-toggle  checked="true"  disabled="true" (ionChange)="setLatLang(checked)"></ion-toggle>
+                      </ion-item>
+                      </ion-col>
+                  </ion-row>
+              <ion-row>
+                  <ion-col>
+                      <ion-item no-padding>
+                          <ion-label position="stacked">Date<sup>*</sup></ion-label>
+                          <ion-input type="text" placeholder="" [value]="date"></ion-input>
+                      </ion-item>
+                  </ion-col>
+                  <ion-col>
+                      <ion-item no-padding>
+                          <ion-label  position="stacked">Time<sup>*</sup></ion-label>
+                          <ion-input type="text"  placeholder="" [value]="time"></ion-input>
+                      </ion-item>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col>
+                      <ion-item no-padding>
+                          <ion-label  position="stacked">Lat<sup>*</sup></ion-label>
+                          <ion-input type="text"  placeholder="" [value]="currentLatitude">
+                          </ion-input>
+                      </ion-item>
+                  </ion-col>
+                  <ion-col>
+                      <ion-item no-padding>
+                          <ion-label  position="stacked">Lang<sup>*</sup></ion-label>
+                          <ion-input type="text"  placeholder="" [value]="currentLongitude">
+                          </ion-input>
+                      </ion-item>
+                  </ion-col>
+              </ion-row>
+          </ion-list>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <label>Upload Picture</label>
+                  <ion-icon ios="ios-camera" md="md-camera" (click)="chooseOption();" item-right
+                      style="color: #6f770a;float:right;"></ion-icon>
+                      <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+                  <!-- <img *ngFor="let pic of photo" src="{{pic}}"
+                      style="width:60px; height:30px; float:right; padding: 0px 10px;" /> -->
+                  <!-- <img src="data:image/jpeg;base64,{{this.photo}}" *ngIf="this.photo!=''" style="width:60px; height:30px; float:right; padding: 0px 10px;" /> -->
+              </ion-item>
+          </ion-list>
+          <div *ngIf="userType=='Officer'">
+              <ion-list>
+                  <ion-item color="newreqbgcolor">
+                      <ion-label>Injuries Added</ion-label>
+                      <ion-select [(ngModel)]="InjuriesAdded">
+                          <ion-select-option value="MinorInjuries">Minor Injuries</ion-select-option>
+                          <ion-select-option value="PermanentDisability">Permanent Disability / Death</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+              </ion-list>
+             <ion-list>
+                  <ion-item color="newreqbgcolor">
+                      <ion-label>Mode of Communication</ion-label>
+                      <ion-select [(ngModel)]="ModeOfCommunication">
+                          <ion-select-option value="Telephone">Telephone</ion-select-option>
+                          <ion-select-option value="SMS">SMS</ion-select-option>
+                          <ion-select-option value="Email">Email</ion-select-option>
+                          <ion-select-option value="InPerson">InPerson</ion-select-option>
+                          <ion-select-option value="Online">Online</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+              </ion-list>
+          </div>
+      </ion-item-group>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dividercolor">
+      <ion-button style="--background: #00b300;width:48%;"  (click)="backtolist()">Back to list</ion-button>
+      <ion-button  style="--background: #00b300;width:48%;"  (click)="submit()">Create</ion-button>
+  </ion-toolbar>
+</ion-footer>

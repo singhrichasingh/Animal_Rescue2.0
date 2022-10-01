@@ -1,0 +1,238 @@
+<ion-header>
+  <ion-toolbar  style="--background: forestgreen;"  >
+    <ion-buttons slot="start" start left>
+      <img src="assets/imgs/embelum.png" style="--background:none;" />
+  </ion-buttons>
+    <ion-title > NGO Registration</ion-title> 
+    <ion-buttons slot="end" >
+      <button (click)="logout()" class="headerbtn" style="background:none;">
+          <img src="../../../assets/imgs/logout.png" style="background: none;" />
+      </button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+
+  <form novalidate (ngSubmit)="SaveDetails(venderDetails)" [formGroup]="venderDetails">
+    <ion-list no-padding>
+
+      <ion-item>
+        <ion-label floating>Circle Name</ion-label>
+        <ion-select  formControlName="Circle_Code">
+          <ion-select-option  value="Test Circle">Test Circle</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Division Name</ion-label>
+        <ion-select  formControlName="Division_Code">
+          <ion-select-option  value="Test Division">Test Division</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Range Name</ion-label>
+        <ion-select formControlName="Range_Code">
+          <ion-select-option  value="Test Range">Test Range</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Village Name</ion-label>
+        <ion-input type="text" class="required" formControlName="Village_Code"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label floating>Animal Category<em>*</em></ion-label>
+        <ion-select formControlName="animalid" multiple="true" >
+          <ion-select-option  value="Reptile">Reptile</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item >
+        <ion-label floating>Animal Name<em>*</em></ion-label>
+        <ion-select formControlName="ChildAnimalId" multiple="true">
+          <ion-select-option  value="Crocodile"
+            >
+            Crocodile</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- <ion-item >
+        <ion-label floating>Animal Name<em>*</em></ion-label>
+        <ion-input type="text" id="OtherAnimalName" formControlName="OtherAnimalName" class="form-control"></ion-input>
+      </ion-item> -->
+
+
+      <h6>Staff Details:</h6>
+      <div>
+        <div class="userDetailDiv" margin-bottom formArrayName="StaffList" >
+          <section >
+            <ion-item-group>
+              <ion-input type="text"  style="display: none;"></ion-input>
+              <ion-item>
+                <ion-label class="required">Name</ion-label>
+                <ion-input class="borderBottom" slot="end" type="text"></ion-input>
+
+              </ion-item>
+              <ion-item class="input-margin">
+                <ion-label class="required" floating>Mobile</ion-label>
+                <ion-input class="borderBottom" slot="end"  type="tel" ></ion-input>
+              </ion-item>
+
+              <ion-item class="input-margin">
+                <ion-label class="required" floating>Age</ion-label>
+                <ion-input class="borderBottom" slot="end" type="number"></ion-input>
+              </ion-item>
+
+              <ion-item color="" class="custinput">
+                <label>Photo</label>
+                <ion-icon ios="ios-camera" md="md-camera" (click)="chooseOptionStaff(i);" style="float:right;">
+                </ion-icon>
+                <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+                <!-- <img *ngIf="photoStaff[i]" src="{{photoStaff[i]}}"
+                  style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+                <img src='assets/imgs/cross.png' class="delIconStaff" (click)="deleteImgStaff(i)"
+                  *ngIf="venderDetails.value.StaffList[i].PhotoURL !='' && !photoStaff[i]" /> -->
+                <!-- <img [src]="imagePrefixUrl+venderDetails.value.StaffList[i].PhotoURL"
+                  style="width:60px; height:30px; float:right; padding: 0px 10px;"
+                  (click)="viewImage(imagePrefixUrl+venderDetails.value.StaffList[i].PhotoURL)"
+                  *ngIf="venderDetails.value.StaffList[i].PhotoURL !='' && !photoStaff[i]" /> -->
+              </ion-item>
+              <ion-input type="text"  value="photoPath" style="display: none;">
+              </ion-input>
+              <ion-input type="text" 
+                style="display: none;" >
+              </ion-input>
+
+            </ion-item-group>
+          </section>
+        </div>
+
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col col-9 style="margin: auto;color: #337ab7">Add New Row</ion-col>
+          <ion-col col-2 (tap)="addUser();"><img class="plusIcon" src="assets/imgs/add.png" /></ion-col>
+        </ion-row>
+      </div>
+
+      <ion-grid>
+        <ion-list>
+          <ion-item color="" class="custinput upload">
+            <label>Upload Documents</label>
+            <ion-icon ios="ios-camera" md="md-camera" (click)="chooseOptionDoc();" style="float:right;">
+            </ion-icon>
+            <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+            <!-- <img *ngFor="let pic of photo" src="data:image/jpeg;base64,{{pic}}"
+              style="width:60px; height:30px; float:right; padding: 0px 10px;" /> -->
+          </ion-item>
+          <h6 >Uploaded Documents</h6>
+          <ion-row >
+            <ion-col col-2 >
+              <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+              <!-- <img src='assets/imgs/cross.png' class="delIcon" (click)="deleteImgDoc(doc.Id)" />
+              <img [src]="imagePrefixUrl+doc.FileName.split('~')[1]"
+                style="width:60px; height:30px; float:right; padding: 0px 10px;"
+                (click)="viewImage(imagePrefixUrl+doc.FileName.split('~')[1])" /> -->
+            </ion-col>
+          </ion-row>
+        </ion-list>
+
+        <ion-list>
+          <ion-item color="" class="custinput upload">
+            <label>Upload Affidavit</label>
+            <ion-icon ios="ios-camera" md="md-camera" (click)="chooseOptionAffidavit();" style="float:right;">
+            </ion-icon>
+            <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+            <!-- <img *ngFor="let Affidavit of photoAffidavit" src="data:image/jpeg;base64,{{Affidavit}}"
+              style="width:60px; height:30px; float:right; padding: 0px 10px;" /> -->
+          </ion-item>
+
+          <h6 >Uploaded Affidavit</h6>
+          <ion-row >
+            <ion-col col-2 >
+              <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+              <!-- <img src='assets/imgs/cross.png' class="delIcon" (click)="deleteImgAff(Aff.Id)" />
+              <img [src]="imagePrefixUrl+Aff.FileName.split('~')[1]"
+                style="width:60px; height:30px; float:right; padding: 0px 10px;"
+                (click)="viewImage(imagePrefixUrl+Aff.FileName.split('~')[1])" /> -->
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      </ion-grid>
+
+      <ion-item>
+        <ion-label floating>Pin Code*</ion-label>
+        <ion-input type="number" maxlength='6' class="required" slot="end" formControlName="PinCode"></ion-input>
+      </ion-item>
+      <!-- <ion-item no-lines
+        *ngIf="( venderDetails.get('PinCode').hasError('required') || venderDetails.get('PinCode').hasError('minlength') || venderDetails.get('PinCode').hasError('maxlength')) && venderDetails.get('PinCode').touched">
+        <div class="error"
+          *ngIf="venderDetails.get('PinCode').hasError('required') && venderDetails.get('PinCode').touched">
+          Pin is required
+        </div>
+        <div class="error"
+          *ngIf="venderDetails.get('PinCode').hasError('minlength') && venderDetails.get('PinCode').touched">
+          Please enter 6 digit Pin number
+        </div>
+        <div class="error"
+          *ngIf="venderDetails.get('PinCode').hasError('maxlength') && venderDetails.get('PinCode').touched">
+          Please enter 6 digit Pin number
+        </div>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label floating>NGO Name</ion-label>
+        <ion-input type="text" class="required" formControlName="NameofVendor" slot="end"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Representative Name</ion-label>
+        <ion-input type="text" class="required" formControlName="RepresentativeName" slot="end"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Mobile Number*</ion-label>
+        <ion-input type="tel" class="required" formControlName="MobileNumber" slot="end"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item no-lines
+        *ngIf="( venderDetails.get('MobileNumber').hasError('required') || venderDetails.get('MobileNumber').hasError('minlength') || venderDetails.get('MobileNumber').hasError('maxlength')) && venderDetails.get('MobileNumber').touched">
+        <div class="error"
+          *ngIf="venderDetails.get('MobileNumber').hasError('required') && venderDetails.get('MobileNumber').touched">
+          Mobile is required
+        </div>
+        <div class="error"
+          *ngIf="venderDetails.get('MobileNumber').hasError('minlength') && venderDetails.get('MobileNumber').touched">
+          Please enter 10 digit Mobile number
+        </div>
+        <div class="error"
+          *ngIf="venderDetails.get('MobileNumber').hasError('maxlength') && venderDetails.get('MobileNumber').touched">
+          Please enter 10 digit Mobile number
+        </div>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label floating>NGO SSOID</ion-label>
+        <ion-input type="text" class="required" formControlName="VendorSSOId" slot="end"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Registration Purpose</ion-label>
+        <ion-input type="text" class="required" formControlName="PurposeforRegistration" slot="end" ></ion-input>
+      </ion-item>
+
+
+
+      <ion-grid>
+        <ion-row no-padding>
+          <ion-col><ion-button expand="block" type="submit" class="submitBtn">Save</ion-button></ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-list>
+  </form>
+
+</ion-content>

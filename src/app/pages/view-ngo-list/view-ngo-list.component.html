@@ -1,0 +1,68 @@
+<ion-header>
+   <ion-toolbar  style="--background: forestgreen;"  >
+    <ion-buttons slot="start" start left>
+      <img src="assets/imgs/embelum.png" style="--background:none;" />
+  </ion-buttons>
+    <ion-title > NGO List</ion-title> 
+    <ion-buttons slot="end" >
+      <button (click)="logout()" class="headerbtn" style="background:none;">
+          <img src="../../../assets/imgs/logout.png" style="background: none;" />
+      </button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label floating>Circle Code</ion-label>
+    <ion-select (ionChange)="loadDivision($event)">
+      <ion-select-option  value="Test Circle">Test Circle</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Division Code</ion-label>
+    <ion-select (ionChange)="loadRange($event)">
+      <ion-select-option  value="Test Division">Test Division</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Range Code</ion-label>
+    <ion-select (ionChange)="loadList($event)">
+      <ion-select-option  value="Test Range">Test Range</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-row *ngIf="noRecordMsg==true" class="errorMsg">
+    <ion-col>No Record Found ...</ion-col>
+  </ion-row>
+  <ion-list >
+    <ion-grid  padding>
+      <img class="editIcon" src="assets/imgs/edit.png" (click)="editVendor(vendor.RegNumber)" />
+      <ion-row><h4>NGO Name : <em>Dummy</em></h4></ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <p>NGO Representative Name</p>
+          <h6>Ricky</h6>
+          <p>Mobile Number</p>
+          <h6>7890787890</h6>
+          <p>Pin Code</p>
+          <h6>301109</h6>
+          <p>Animal Category</p>
+          <h6>Reptile</h6>
+        </ion-col>
+        <ion-col col-6>
+          <p>Circle Name</p>
+          <h6>Test Circle</h6>
+          <p>Division Name</p>
+          <h6>Test Division</h6>
+          <p>Range Name</p>
+          <h6>Test Range</h6>
+          <p>Animal Name</p>
+          <h6>Crocodile</h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

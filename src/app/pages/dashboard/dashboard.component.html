@@ -1,0 +1,103 @@
+<ion-header >
+  <ion-toolbar class="profile-tool"  style="--background: forestgreen;" >
+    <ion-buttons slot="start" start left>
+      <img src="assets/imgs/embelum.png" style="--background:none;" />
+  </ion-buttons>
+    <ion-title style="color: whitesmoke;">Dashboard</ion-title> 
+    <ion-buttons slot="end" >
+      <p style="color: whitesmoke;background: forestgreen;">Welcome User1</p>
+    <button (click)="logout()" class="headerbtn" style="background:none;">
+        <img src="../../../assets/imgs/logout.png" style="background: none;" />
+    </button>
+</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+<ion-grid style="margin-top: 7%;">
+      <ion-row>
+        <ion-col size="5">
+         <ion-card  class="wildlifebg" style="width:30vw;height:16vh;text-align: center;padding-top: 7vh;font-size: 1.3em;color: floralwhite;">
+           Rescue
+         </ion-card>
+        </ion-col>
+      </ion-row>
+      <br/>
+      <!-- <ion-row class="wildlifebg">
+<ion-col>
+          <ion-img (click)="goToWildlife()" src="assets/imgs/wildlife.png" style="background:none;float:left; width:27%;"></ion-img>
+        </ion-col>
+        <ion-col>
+          <h3>Wildlife</h3>
+</ion-col>
+      </ion-row> -->
+      
+  </ion-grid>
+
+ 
+  <!-- <ion-row>
+    <ion-col style="font-size: 4vw;color:green;top: 60%;">
+        Forest Department<br/><b>Government Of Rajasthan</b>
+    </ion-col>
+</ion-row> -->
+
+  <!-- <ion-grid right showWhen="tablet">
+      <ion-row style="height:100%;">
+          
+          <ion-col col-7 class="forestbg"> 
+              <ion-row>
+                  <ion-col style="font-size: 4vw;color: white;top: 60%;">
+                      Forest Department<br/><b>Government Of Rajasthan</b>
+                  </ion-col>
+              </ion-row>
+          </ion-col>
+
+          <ion-col col-5 style="height: 100%;">
+                 
+              <ion-row style="margin-top: 10%;">
+                  <ion-img (click)="goToForest()" src="assets/imgs/forest_icon.png" style="display: inline-block;min-width: 100%;background: #fff; contain: strict;text-align: -webkit-center;"></ion-img>
+                  <h3 style="text-align: center;font-size: 2.8rem;margin: 0 auto;">Forest</h3>
+              </ion-row>
+              
+              <ion-row style="margin-top: -5%;">
+                  <ion-img (click)="goToWildlife()" src="assets/imgs/wildlife_icon.png" style="display: inline-block;min-width: 100%;background: #fff; contain: strict;text-align: -webkit-center;"></ion-img>
+                  <h3 style="text-align: center;font-size: 2.8rem;margin: 0 auto;">Wildlife</h3>
+              </ion-row>
+              
+                  
+          </ion-col>
+      </ion-row>
+  </ion-grid> -->
+
+</ion-content>
+<ion-footer>
+<ion-row>
+  <ion-col size="4">
+   <ion-card style="text-align: center;">
+     <p>New</p>
+     <p style="margin-top: -5%;">127</p>
+   </ion-card>
+  </ion-col>
+  <ion-col size="4">
+    <ion-card style="text-align: center;">
+     <p >Rescued</p>
+     <p style="margin-top: -5%;">133</p>
+   </ion-card>
+  </ion-col>
+  <ion-col size="4">
+    <ion-card style="text-align: center;">
+      <p>Released</p>
+      <p style="margin-top: -5%;">151</p>
+    </ion-card>
+  </ion-col>
+</ion-row>
+</ion-footer>
+<ion-footer class="forestbg"> 
+  <ion-card>
+  <ion-row>
+  <ion-col style="font-size: 4vw;color:green;top: 60%;background: #fff;">
+      Forest Department<br/><b>Government Of Rajasthan</b>
+  </ion-col>
+</ion-row>
+</ion-card>
+</ion-footer>

@@ -1,0 +1,75 @@
+<ion-header >
+  <ion-toolbar  style="--background: forestgreen;"  >
+    <ion-buttons slot="start" start left>
+      <img src="assets/imgs/embelum.png" style="--background:none;" />
+  </ion-buttons>
+    <ion-title >Wildlife</ion-title> 
+    <ion-buttons slot="end" >
+      <button (click)="logout()" class="headerbtn" style="background:none;">
+          <img src="../../../assets/imgs/logout.png" style="background: none;" />
+      </button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content full >
+  
+<span hideWhen="tablet">
+  <div class="wild_header" class="ion-text-center" text-center>
+      <ion-img src="assets/imgs/top_header_tiger.png" style="width: 40%;display: inline-block;" class="wildLion"></ion-img>
+  </div>
+
+  <ion-list style="padding-top:10%">
+      <!-- <ion-item (click)="openNahargarhApp();">
+          <ion-img src="assets/imgs/nahargadh_icon.png" item-start></ion-img>
+          Nahargarh Zoo Application
+          <ion-icon item-end ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+      </ion-item> -->
+      <br/>
+      <!-- <ion-item (click)="comingsoonBooking();">
+          <ion-img src="assets/imgs/online_ticket.png" item-start></ion-img>
+          Online Ticket Booking
+          <ion-icon item-end ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+</ion-item> -->
+
+      <ion-item (click)="animalRescue('citizen');">
+          <ion-img src="assets/imgs/animal_rescue.png" item-start></ion-img>
+          Animal Rescue
+          <ion-icon item-end ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+          
+      </ion-item>
+      <br/>
+      
+      <ion-item (click)="openVenderPage();" >
+        <ion-img src="assets/imgs/save-water-vender.png" item-start></ion-img>
+        NGO Registration
+        <ion-icon item-end ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+    </ion-item>
+    <br/>
+    <ion-item (click)="ViewVenderList();" >
+        <ion-img src="assets/imgs/list-view.png" item-start></ion-img>
+        View NGO List
+        <ion-icon item-end ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+    </ion-item>
+      
+      <!-- <ion-item (click)="openVenderPage();" *ngIf="isNGO('ngo');">
+          <ion-img src="assets/imgs/save-water-vender.png" item-start></ion-img>
+          NGO Registration
+          <ion-icon item-end ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item (click)="ViewVenderList();" *ngIf="isNGO('ngo');">
+          <ion-img src="assets/imgs/list-view.png" item-start></ion-img>
+          View NGO List
+          <ion-icon item-end ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline"></ion-icon>
+      </ion-item> -->
+
+  </ion-list>
+</span>
+
+
+
+ 
+</ion-content>
+
+

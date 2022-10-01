@@ -1,0 +1,63 @@
+<ion-header style="background: forestgreen;">
+  <ion-toolbar hideBackButton color="headercolor">
+    <ion-buttons slot="start">
+        <img src="assets/imgs/embelum.png" style="background:none;" />
+    </ion-buttons>
+    <ion-title style="color: whitesmoke" >
+        OTP Page
+    </ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form" class="form-container">
+          
+    <div>
+      <ion-input name="a" #a formControlName="firstValue" (keyup)="moveFocus($event,b,'')" type="tel" placeholder="0"
+        maxlength="1">
+      </ion-input>
+    </div>
+
+    <div>
+      <ion-input name="b" #b  formControlName="secondValue" (keyup)="moveFocus($event,c,a)" type="tel" placeholder="0"
+        maxlength="1">
+      </ion-input>
+    </div>
+
+    <div>
+      <ion-input name="c"  #c formControlName="thirdValue" (keyup)="moveFocus($event,d,b)" type="tel" placeholder="0"
+        maxlength="1">
+      </ion-input>
+    </div>
+
+    <div>
+      <ion-input name="d"  #d formControlName="fourthValue" (keyup)="moveFocus($event,e,c)" type="tel" placeholder="0"
+        maxlength="1">
+      </ion-input>
+    </div>
+
+    <div>
+      <ion-input name="e"  #e formControlName="fifthValue" (keyup)="moveFocus($event,f,d)" type="tel" placeholder="0"
+        maxlength="1">
+      </ion-input>
+    </div>
+
+    <div>
+      <ion-input name="f"  #f formControlName="sixthValue" (keyup)="moveFocus($event,'',e)" type="tel" placeholder="0"
+        maxlength="1"></ion-input>
+    </div>
+    </form>
+    
+    <!-- <ion-button  block (click)="submitOtp();" [disabled]="buttonDisabled">Submit</ion-button> -->
+
+
+    <ion-row>
+          <ion-col size="2"></ion-col>
+          <ion-col size="8">
+         <ion-button expand="block"  style="--background: #00b300" full
+         (click)="submitOtp();" [disabled]="buttonDisabled">Submit</ion-button>
+            </ion-col>
+              <ion-col size="2"></ion-col>
+      </ion-row>
+    <!-- <button ion-button color="loginbtn" block (click)="getAnimalList1()" [disabled]="buttonDisabled">get</button> -->
+</ion-content>

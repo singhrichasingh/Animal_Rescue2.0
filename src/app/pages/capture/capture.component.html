@@ -1,0 +1,303 @@
+<ion-header style="background: forestgreen;">
+  <ion-toolbar color="headercolor">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" style="width: 40px;height: 30px;color: white;"></ion-icon>
+    </ion-buttons>
+      <ion-title style="color: whitesmoke">
+          Capture Details
+      </ion-title>
+      <ion-buttons slot="end" >
+        <button (click)="logout()" class="headerbtn" style="background:none;">
+            <img src="../../../assets/imgs/logout.png" style="background: none;" />
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- For Mobile -->
+  <div hideWhen="tablet">
+      <ion-item-group>
+          <ion-item-divider color="dividercolor">Applicant Details:</ion-item-divider>
+          <ion-item color="newreqbgcolor" class="custinput">
+              <ion-label>Citizen Name</ion-label>
+              <ion-input type="text" id="citizenname" [(ngModel)]="citizenname" class="form-control"
+                   [disabled]="isdisable"></ion-input>
+          </ion-item>
+          <ion-item color="newreqbgcolor" class="custinput">
+              <ion-label>Citizen EmailID</ion-label>
+              <ion-input type="text" id="citizenemailid" [(ngModel)]="EmailID" placeholder="Citizen EmailID"
+                  class="form-control"  [disabled]="isdisable"></ion-input>
+          </ion-item>
+          <ion-item color="newreqbgcolor" class="custinput">
+              <ion-label>Citizen Mobile</ion-label>
+              <ion-input type="text" id="citizenmobile" [(ngModel)]="Mobile" placeholder="Citizen Mobile"
+                  class="form-control"  [disabled]="isdisable"></ion-input>
+          </ion-item>
+      </ion-item-group>
+
+
+      <ion-item-group>
+
+          <ion-list >
+              <ion-radio-group value="rural">
+              <ion-item color="newreqbgcolor">
+                  <ion-label>Rural</ion-label>
+                  <ion-radio  checked value="rural" ngDefaultControl></ion-radio>
+              </ion-item>
+
+              <ion-item color="newreqbgcolor">
+                  <ion-label>Urban</ion-label>
+                  <ion-radio  checked value="urban" ngDefaultControl></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-label>District</ion-label>
+                  <ion-select>
+                      <ion-select-option >Test District</ion-select-option>
+                  </ion-select>
+              </ion-item>
+          </ion-list>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-label>Block</ion-label>
+                  <ion-select  >
+                      <ion-select-option >Test Block</ion-select-option>
+                  </ion-select>
+              </ion-item>
+          </ion-list>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-label>Gram Panchayat</ion-label>
+                  <ion-select  >
+                      <ion-select-option >Test GP</ion-select-option>
+                  </ion-select>
+              </ion-item>
+          </ion-list>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-label>Village</ion-label>
+                  <ion-select  >
+                      <ion-select-option >Test Village</ion-select-option>
+                  </ion-select>
+
+              </ion-item>
+          </ion-list>
+          <ion-item color="newreqbgcolor" class="custinput">
+              <ion-label>Location</ion-label>
+              <ion-input type="text" id="location" [(ngModel)]="location" 
+                  placeholder="Location" class="form-control" ></ion-input>
+              <ion-icon name="ion-ios-location" style="float:right;color:black;" item-right primary></ion-icon>
+          </ion-item>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-label>Animal Name</ion-label>
+                  <ion-input type="text" id="ChildAnimalName" [(ngModel)]="ChildAnimalName"
+                       class="form-control" ></ion-input>
+              </ion-item>
+          </ion-list>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <label>Description</label>
+                 
+                  <ion-textarea elastic [(ngModel)]="description" 
+                      ></ion-textarea>
+              </ion-item>
+          </ion-list>
+      </ion-item-group>
+
+
+
+      <ion-item-group>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-label>Mode of Communication</ion-label>
+                  <ion-input type="text" id="ModeOfCommunication" 
+                      value="{{ModeOfCommunication}}" placeholder="Mode of Communication"
+                      class="form-control" [disabled]="isdisable"></ion-input>
+              </ion-item>
+          </ion-list>
+
+          <!--  <ion-list-header color="dividercolor">Any Harm Reported:</ion-list-header> -->
+          <ion-list>
+              <ion-item color="newreqbgcolor">
+                  <ion-label>Any Harm Reported:</ion-label>
+                  <ion-select [(ngModel)]="Casualty" (ionChange)="onHarmChange($event)">
+                      <ion-select-option value="true">Yes</ion-select-option>
+                      <ion-select-option value="false">No</ion-select-option>
+                  </ion-select>
+              </ion-item>
+          </ion-list>
+
+          <!-- ********************New work 23/07/2019 by Divyanshu***************************** -->
+          <ion-item-group *ngIf="Casualty=='true' || Casualty==true">
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-label>Harm Caused to</ion-label>
+                  <ion-select >
+                      <ion-select-option value="0">Select Type</ion-select-option>
+                      <ion-select-option value="Person">Person</ion-select-option>
+                      <ion-select-option value="Animal">Animal</ion-select-option>
+                  </ion-select>
+              </ion-item>
+
+              <ion-list>
+                  <ion-item color="newreqbgcolor">
+                      <ion-label>Medical Assistance Required</ion-label>
+                      <ion-select 
+                          (ionChange)="onMediAssistRequiredChange($event)">
+                          <ion-select-option value="true">Yes</ion-select-option>
+                          <ion-select-option value="false">No</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+              </ion-list>
+
+
+              <ion-item-group
+                  *ngIf="MediAssistRequired == 'true' || MediAssistRequired == true">
+                  <ion-list>
+                      <ion-item color="newreqbgcolor" class="custinput">
+                          <ion-label>Assistance Type</ion-label>
+                          <ion-select [(ngModel)]="MediAssistType">
+                              <ion-select-option value="0">Select Type</ion-select-option>
+                              <ion-select-option value="1">First Aid</ion-select-option>
+                              <ion-select-option value="2">Ambulance</ion-select-option>
+                          </ion-select>
+                      </ion-item>
+                  </ion-list>
+
+
+                  <ion-list *ngIf="MediAssistType=='1'">
+                      <ion-item *ngFor="let item of AssistanceTypeFirstAidModel,let i=index">
+                          <ion-label>{{item.Name}}</ion-label>
+                          <ion-checkbox color="dark" checked={{item.IsChecked}} [(ngModel)]="checkedItems[i]">
+                          </ion-checkbox>
+                      </ion-item>
+                  </ion-list>
+
+                  <ion-item color="newreqbgcolor" class="custinput">
+                      <ion-label>No Of Person Injured</ion-label>
+                      <ion-input type="text" id="personInjured" [(ngModel)]="NoOfPersonInjured"
+                          value="{{NoOfPersonInjured}}" class="form-control">
+                      </ion-input>
+                  </ion-item>
+
+                  <ion-item color="newreqbgcolor" class="custinput">
+                      <ion-label>Casualty Description</ion-label>
+                      <ion-textarea elastic [(ngModel)]="CasualtyDescription"
+                          value="{{CasualtyDescription}}">
+                      </ion-textarea>
+                  </ion-item>
+              </ion-item-group>
+          </ion-item-group>
+
+
+          <ion-item color="newreqbgcolor" class="custinput">
+              <ion-label>Action Taken Time</ion-label>
+            
+              <ion-datetime displayFormat="MMM DD, YYYY HH:mm" pickerFormat="MMM DD, YYYY HH:mm"
+                  [(ngModel)]="ActionTakenTime" style="float:right;color: #6f770a;"></ion-datetime>
+          </ion-item>
+
+          <ion-item color="newreqbgcolor" class="custinput">
+              <ion-label>Animal Rescue Time</ion-label>
+             
+              <ion-datetime displayFormat="MMM DD, YYYY HH:mm" pickerFormat="MMM DD, YYYY HH:mm"
+                  [(ngModel)]="AnimalRescueTime" style="float:right;color: #6f770a;"></ion-datetime>
+          </ion-item>
+          <ion-list-header color="dividercolor">Capture Details:</ion-list-header>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <label>Upload Capture Picture</label>
+                  <ion-icon ios="ios-camera" md="md-camera"  (click)="chooseOption();" style="float:right;color:black;">
+                  </ion-icon>
+                  <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+                  <!-- <input type="file" placeholder="choose image"/> -->
+                  <!-- <img *ngFor="let pic of photo" src="{{pic}}"
+                      style="width:60px; height:30px; float:right; padding: 0px 10px;" /> -->
+              </ion-item>
+          </ion-list>
+
+          <ion-list>
+              <ion-row color="dividercolor" style="color:#6f770a; ">
+                  <ion-col >
+                      <ion-item no-padding  position="stacked"> 
+                          <ion-label  position="stacked">Current Time and Location<sup>*</sup></ion-label>
+                         
+                      </ion-item>
+                  </ion-col>
+                 <ion-col>
+                     <ion-item no-padding  position="stacked">
+                      <ion-toggle  checked="true" [(ngModel)]="checked"  (ionChange)="setLatLang(checked)"></ion-toggle>
+                  </ion-item>
+                  </ion-col>
+              </ion-row>
+          <ion-row>
+              <ion-col>
+                  <ion-item no-padding>
+                      <ion-label position="stacked">Date<sup>*</sup></ion-label>
+                      <ion-input type="text"  placeholder="" [value]="date"></ion-input>
+                  </ion-item>
+              </ion-col>
+              <ion-col>
+                  <ion-item no-padding>
+                      <ion-label  position="stacked">Time<sup>*</sup></ion-label>
+                      <ion-input type="text"  placeholder="" [value]="time"></ion-input>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+
+          <ion-row>
+              <ion-col>
+                  <ion-item no-padding>
+                      <ion-label  position="stacked">Lat<sup>*</sup></ion-label>
+                      <ion-input type="text"  placeholder="" [value]="currentLatitude">
+                      </ion-input>
+                  </ion-item>
+              </ion-col>
+              <ion-col>
+                  <ion-item no-padding>
+                      <ion-label  position="stacked">Lang<sup>*</sup></ion-label>
+                      <ion-input type="text"  placeholder="" [value]="currentLongitude">
+                      </ion-input>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+      </ion-list>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <label>Upload Staff Picture</label>
+                  <ion-icon ios="ios-camera" md="md-camera"  (click)="chooseOptionStaff();" style="float:right;color:black;">
+                  </ion-icon>
+                  <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+                  <!-- <img *ngFor="let picStaff of photoStaff" src="{{picStaff}}"
+                      style="width:60px; height:30px; float:right; padding: 0px 10px;" /> -->
+              </ion-item>
+          </ion-list>
+          <ion-list>
+              <ion-item color="newreqbgcolor" class="custinput">
+                  <ion-textarea elastic [(ngModel)]="noteContent" placeholder="Remark"></ion-textarea>
+              </ion-item>
+          </ion-list>
+      </ion-item-group>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar hideWhen="tablet" style="text-align: center;">
+
+      <ion-button full style="--background: #00b300" (click)="submitCaptureByMobile()" *ngIf="!isNGO">Submit</ion-button>
+      <ion-row *ngIf="isNGO">
+          <ion-col col-6>
+              <ion-button style="--background: #00b300"  full (click)="rejectRequest(RegistrationID)">Reject</ion-button>
+          </ion-col>
+          <ion-col col-6>
+              <ion-button full style="--background: #00b300"(click)="submitCaptureByMobile()">Submit</ion-button>
+          </ion-col>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer> 

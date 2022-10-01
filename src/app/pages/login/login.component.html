@@ -1,0 +1,64 @@
+
+<ion-content>
+      <ion-grid padding class="vertical-align-content">
+          <ion-row style="padding: 3%;">
+       
+              <ion-col style="background: white;border-radius:15px" size="1.2" >
+                  <ion-img  src="assets/imgs/ambelum.png" ></ion-img>
+
+              </ion-col>
+            
+              <div style="border-right:2px solid #000; height:45px;margin-right: 3%;"></div>
+              <ion-col size="8" style="font-size: 5vw; color: white;">
+                  Wildlife Species Rescue,<br /> Government Of Rajasthan
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+
+      <div style="border-top:1px solid #334F38;margin-top:10%;position:relative">
+          <div class="ion-text-center" style="margin-top:-10%">
+              <ion-img width="85" height="85" src="assets/imgs/tiger.png" style="background:none;width:18%;display: inline-block;"></ion-img>
+          </div>
+   </div>
+    <div style="width: 90vw;margin-left: 5%;">
+   <!-- <ion-list inset> -->
+       <div *ngIf='ssoLogin'>
+          <ion-item >
+              <ion-input type="text" id="username" [(ngModel)]="username" placeholder="SSOID" class="form-control"
+                  disabled=false></ion-input>
+              <ion-icon name="person-outline" item-right primary></ion-icon>
+              </ion-item>
+          <ion-item style="margin-top:2%">
+            <ion-input type="text" id="username" [(ngModel)]="username" placeholder="Password" class="form-control"
+            disabled=false></ion-input>
+            <ion-icon name="eye-off-outline" item-right primary></ion-icon>
+          </ion-item>
+        </div>
+        <div *ngIf='!ssoLogin'>
+          <ion-item >
+            <ion-input type="text" id="username" [(ngModel)]="username" placeholder="Phone No." class="form-control"
+                disabled=false></ion-input>
+                <!-- <ion-icon name="eye-off-outline" item-right primary></ion-icon> -->
+            <ion-icon name="call-outline" ></ion-icon>
+        </ion-item>
+    </div>
+        <br/>
+          <ion-item class="item-trns" style="border-bottom:none!important;padding-left:0px">
+              <ion-label >Remember Me</ion-label>
+              <ion-checkbox slot="start" [(ngModel)]="rememberme"></ion-checkbox>
+          </ion-item>
+          <ion-button style="--background: #00b300" expand="block" (click)="doLogin();" [disabled]="buttonDisabled">SSO LOGIN</ion-button>
+          <!-- <ion-button  color="loginbtn" block (click)="doLogin();" [disabled]="buttonDisabled">SSO LOGIN
+          </ion-button> -->
+          
+      <!-- </ion-list> -->
+    </div>
+      <div class="ion-text-center" padding text-center style="color:#fff">
+          Not Having SSOID,
+          <a (click)="openSweadwarUrl();" style="color:#EDD700">
+              Click Here
+          </a>
+      </div>
+      <div class="ion-text-center" *ngIf='ssoLogin' (click)="ssoLogin= !ssoLogin" style="color:#fff"> SIGN IN WITH PHONE </div>
+      <div class="ion-text-center" *ngIf='!ssoLogin' (click)="ssoLogin= !ssoLogin" style="color:#fff"> SIGN IN WITH SSOID </div>
+    </ion-content>

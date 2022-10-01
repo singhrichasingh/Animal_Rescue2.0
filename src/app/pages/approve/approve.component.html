@@ -1,0 +1,149 @@
+<ion-header style="background: forestgreen;">
+  <ion-toolbar color="headercolor">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" style="width: 40px;height: 30px;color: white;"></ion-icon>
+    </ion-buttons>
+      <ion-title style="color: whitesmoke">
+          Approved Form
+      </ion-title>
+      <ion-buttons slot="end" >
+        <button (click)="logout()" class="headerbtn" style="background:none;">
+            <img src="../../../assets/imgs/logout.png" style="background: none;" />
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item-group hideWhen="tablet">
+      <ion-item-divider color="dividercolor">Applicant Details:</ion-item-divider>
+      <ion-item color="newreqbgcolor">
+          <ion-label style="padding: 1%;">Citizen Name</ion-label>
+          <ion-input type="text" id="citizenname"  class="form-control" slot="end"
+               [disabled]="isdisable">Rick</ion-input>
+      </ion-item>
+      <ion-item color="newreqbgcolor">
+          <ion-label style="padding: 1%;">Citizen EmailID</ion-label>
+          <ion-input type="text" id="citizenemailid"  slot="end"
+              class="form-control"  [disabled]="isdisable">xyz@abc.com</ion-input>
+      </ion-item>
+      <ion-item color="newreqbgcolor">
+          <ion-label style="padding: 1%;">Citizen Mobile</ion-label>
+          <ion-input type="text" id="citizenmobile" [(ngModel)]="Mobile" slot="end"
+              class="form-control"  [disabled]="isdisable"> 343456786</ion-input>
+      </ion-item>
+
+      <ion-item-divider color="dividercolor">Address Type</ion-item-divider>
+
+      <ion-list>
+        <ion-radio-group value="rural">
+            <ion-item color="newreqbgcolor">
+                <ion-label>Rural</ion-label>
+                <ion-radio   value="rural" ></ion-radio>
+            </ion-item>
+  
+            <ion-item color="newreqbgcolor">
+                <ion-label>Urban</ion-label>
+                <ion-radio  checked="true" value="urban" ></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-list>
+          <ion-item color="newreqbgcolor">
+              <ion-label>District</ion-label>
+              <ion-select  >
+                  <ion-select-option  >Test ``District
+                  </ion-select-option>
+              </ion-select>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item color="newreqbgcolor">
+              <ion-label>Block</ion-label>
+              <ion-select  >
+                  <ion-select-option  id="{{BlockID}}">Test Block
+                  </ion-select-option>
+              </ion-select>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item color="newreqbgcolor">
+              <ion-label>Gram Panchayat</ion-label>
+              <ion-select  >
+                  <ion-select-option  id="{{GPID}}">Test GP</ion-select-option>
+              </ion-select>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item color="newreqbgcolor">
+              <ion-label>Village</ion-label>
+              <ion-select  >
+                  <ion-select-option  id="{{VillageID}}"
+                      (ionSelect)="Village">Test Village</ion-select-option>
+              </ion-select>
+          </ion-item>
+      </ion-list>
+      <ion-item color="newreqbgcolor">
+          <ion-label style="padding-left: 2%;">Location</ion-label>
+          <ion-input type="text" id="location" slot="end"
+               class="form-control" >Test Location</ion-input>
+          <ion-icon name="ion-ios-location" item-right primary style="color:#6f770a;"></ion-icon>
+      </ion-item>
+      <ion-list>
+          <ion-item color="newreqbgcolor">
+              <ion-label>Animal Name</ion-label>
+              <ion-input type="text" id="animalName" slot="end"
+                  class="form-control" >Snake</ion-input>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+
+          <ion-item color="newreqbgcolor">
+              <label>Description</label>
+              <ion-textarea elastic slot="end"
+                   >Description.......</ion-textarea>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item color="newreqbgcolor">
+              <label>Uploaded Picture</label>
+              <!-- <button ion-button (click)="takePicture();" id="file-input">Default</button> -->
+              <!--<button ion-button (click)="onClick()">Upload</button>-->
+              <img slot="end" src="../../../assets/imgs/forestbg1.png" style="width:60px; height:30px; float:right; padding: 0px 10px;" />
+          </ion-item>
+      </ion-list>
+
+
+      <ion-item-divider color="dividercolor">Casualty Details</ion-item-divider>
+      <ion-list >
+        <ion-radio-group value="no">
+          <ion-item color="newreqbgcolor">
+              <ion-label>Yes </ion-label>
+              <ion-radio *ngIf="Casualty== true" value="yes" checked="true" ngDefaultControl></ion-radio>
+          </ion-item>
+
+          <ion-item color="newreqbgcolor">
+              <ion-label>No</ion-label>
+              <ion-radio  value="no" checked="true" ngDefaultControl></ion-radio>
+          </ion-item>
+          </ion-radio-group>
+      </ion-list>
+
+  </ion-item-group>
+</ion-content>
+<ion-footer>
+  <ion-toolbar style="text-align: center;">
+      <ion-row>
+          <ion-col col-6><ion-button full style="--background: #00b300" icon-left (click)="submitApproveByMobile(1)">
+                  <!-- <ion-icon name="ion-ios-compose"></ion-icon> -->
+                  Approved
+              </ion-button>
+          </ion-col>
+          <ion-col col-6><ion-button full style="--background: #00b300" icon-left (click)="submitApproveByMobile(0);">
+                  <!-- <ion-icon name="ion-ios-compose"></ion-icon> -->
+                  Reject
+              </ion-button>
+          </ion-col>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>

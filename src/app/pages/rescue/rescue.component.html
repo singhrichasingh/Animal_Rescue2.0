@@ -1,0 +1,107 @@
+<ion-header style="background: forestgreen;">
+  <ion-toolbar color="headercolor">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" style="width: 40px;height: 30px;color: white;"></ion-icon>
+    </ion-buttons>
+      <ion-title style="color: whitesmoke">
+          Animal Rescue
+      </ion-title>
+      <ion-buttons slot="end" >
+        <button (click)="logout()" class="headerbtn" style="background:none;">
+            <img src="../../../assets/imgs/logout.png" style="background: none;" />
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-row>
+    <ion-button color="{{tabClassCitizen}}" 
+    (click)="changeUserDetails(0);">Citizen</ion-button>
+<!-- <ion-button color="{{tabClassReviewer}}" 
+    (click)="changeUserDetails(1);">Reviewer</ion-button>
+<ion-button  color="{{tabClassApprover}}" 
+    (click)="changeUserDetails(2);">Approver</ion-button> -->
+  </ion-row>
+ 
+</ion-header>
+
+<ion-content>
+        <ion-row class="ion-no-padding">
+            <ion-col size="7" class="ion-no-padding">
+              <button ion-button class="btngreen" small icon-left   (click)="newRequest();" >
+              <ion-icon name="person-add"></ion-icon>
+               New rescue Registeration
+          </button>
+            </ion-col>
+            <ion-col class="ion-no-padding">
+              <div style="border: 1px solid #395a00;"> 
+              <ion-select [(ngModel)]="searchtype" (ionChange)="changesearchtype();">
+                  <ion-select-option value="">--ALL--</ion-select-option>
+                  <ion-select-option value="New">New</ion-select-option>
+                  <ion-select-option value="Assigned">Assigned</ion-select-option>
+                  <ion-select-option value="Capture">Capture</ion-select-option>
+                  <ion-select-option value="Released">Released</ion-select-option>
+              </ion-select>
+              </div>
+            </ion-col>
+            </ion-row>
+        <!-- <ion-card *ngIf="offline == 'none' || rescueData1 == 0" class="norecordfound" padding>No Data Found.</ion-card> -->
+        <p >
+            <ion-card class="card-container"  padding>
+                <ion-row align-items-start>
+                    <ion-col col-6>S.No.</ion-col>
+                    <ion-col col-6>1</ion-col>
+                </ion-row>
+                <ion-row align-items-start>
+                    <ion-col col-6>Registration ID</ion-col>
+                    <ion-col col-6>1234</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>Citizen Name</ion-col>
+                    <ion-col col-6>CitizenName</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>Citizen Mobile No.</ion-col>
+                    <ion-col col-6>123456789</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>District</ion-col>
+                    <ion-col col-6>District</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>Block</ion-col>
+                    <ion-col col-6>Block</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>Village</ion-col>
+                    <ion-col col-6>Village</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>Location</ion-col>
+                    <ion-col col-6>Location</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>Animal Category</ion-col>
+                    <ion-col col-6>AnimalName</ion-col>
+                </ion-row>
+                <!-- <ion-row *ngIf="ButtonShowAccordingRole !='ngo'">
+                    <ion-col col-6>Rescue Status</ion-col>
+                    <ion-col col-6 >RescueStatus</ion-col>
+                </ion-row>
+                <ion-row *ngIf="ButtonShowAccordingRole =='ngo'">
+                    <ion-col col-6>Rescue Status</ion-col>
+                    <ion-col col-6>RescueStatus</ion-col>
+                </ion-row> -->
+  
+                <ion-row >
+                    <ion-col size="1"></ion-col>
+                    <ion-col size="10">
+                        <ion-button style="--background: #00b300" small icon-left (click)="showDetails(rd.RegistrationID);">
+                            <!-- <ion-icon name="ion-ios-compose"></ion-icon> -->
+                            View
+                        </ion-button>
+                    </ion-col>
+                    <ion-col size="1"></ion-col>
+                </ion-row>
+            </ion-card>
+        </p>
+
+  </ion-content>
